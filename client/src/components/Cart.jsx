@@ -6,7 +6,7 @@ const Cart = () => {
   const isCart = cart.length > 0;
   return (
     <>
-      <div className="overflow-auto max-h-[379px] bg-white rounded-t-xl">
+      <div className="overflow-auto max-h-[379px] bg-gray-200 rounded-t-xl">
         {isCart ? (
           <table className="mx-auto table-fixed w-full">
             <thead className="bg-gray-100 sticky top-0 z-40 shadow-sm">
@@ -30,7 +30,8 @@ const Cart = () => {
                   <td className="max-md:hidden p-2 text-gray-700 font-medium">
                     {i + 1}
                   </td>
-                  <td className="p-2 w-10 md:w-48 truncate text-gray-700 font-medium">
+                  <td className="p-2 w-10 md:w-48 truncate text-gray-700 
+                  font-medium">
                     {item.name}
                   </td>
                   <td className="p-2 max-md:text-sm text-gray-700 font-medium">
@@ -63,12 +64,12 @@ const Cart = () => {
           </table>
         ) : (
           <div className="p-6 text-center text-gray-600 w-full">
-            <p className="text-xl flex justify-center">Your cart is empty 🛍️</p>
+            <p className="text-xl flex justify-center uppercase">Sorry!!! Your cart is empty 🛍️</p>
           </div>
         )}
       </div>
       {cart?.length ? (
-        <div className="flex text-gray-700 text-sm md:text-base bg-white items-center justify-end p-2 font-bold rounded-b-xl">
+        <div className="flex text-gray-900 text-sm md:text-base bg-white items-center justify-end p-2 font-bold rounded-b-xl">
           Total: ₹ {total.toFixed(2)}
         </div>
       ) : (

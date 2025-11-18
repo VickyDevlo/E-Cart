@@ -4,7 +4,7 @@ import { useCart } from "../context/CartContext";
 const Header = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
-  
+
   return (
     <header className="bg-gray-100 shadow-md sticky top-0 overflow-hidden z-50">
       <nav className="container mx-auto flex items-center justify-between p-3">
@@ -12,7 +12,7 @@ const Header = () => {
           onClick={() => navigate("/")}
           className="text-base md:text-xl font-bold cursor-pointer text-gray-800"
         >
-          🛒 E-Cart
+          E-Cart
         </h1>
         <ul className="flex items-center gap-5 md:text-lg font-medium text-gray-800">
           <li>

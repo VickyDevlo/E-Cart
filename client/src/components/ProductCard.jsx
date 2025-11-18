@@ -31,7 +31,7 @@ export const ProductCard = ({ product }) => {
 
   const bgClass =
     status === "Added ✔"
-      ? "bg-red-700"
+      ? "bg-orange-800"
       : status === "Update"
       ? "bg-yellow-600 hover:bg-yellow-700"
       : "bg-green-600 hover:bg-green-700";
