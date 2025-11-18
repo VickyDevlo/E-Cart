@@ -3,10 +3,12 @@ import { ProductCard } from "./ProductCard";
 
 export const ProductList = () => {
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-3 items-center py-4 max-md:px-2 md:py-5">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div className="container mx-auto px-2 py-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-4 items-start">
+        {products?.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };
