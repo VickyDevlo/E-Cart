@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const CartContext = createContext();
 
@@ -9,7 +16,7 @@ export const CartProvider = ({ children }) => {
   });
 
   //Add to cart
-  const addToCart = (product) => {
+  const addToCart = useCallback((product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
 
@@ -21,10 +28,11 @@ export const CartProvider = ({ children }) => {
 
       return [...prev, { ...product, qty: 1 }];
     });
-  };
+  }, []);
 
   //UpdateCart
   const updateQty = (id, qty) => {
+    if (qty < 1) qty = 1;
     setCart((prev) =>
       prev.map((item) => (item.id === id ? { ...item, qty } : item))
     );
@@ -35,13 +43,17 @@ export const CartProvider = ({ children }) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  //Total
+  const total = useMemo(
+    () => cart.reduce((sum, item) => sum + item.price * item.qty, 0),
+    [cart]
+  );
 
-    useEffect(() => {
+  useEffect(() => {
     try {
       localStorage.setItem("cart", JSON.stringify(cart));
     } catch (err) {
-      console.error("Failed to add cart:", err);
+      console.error("Failed add to cart:", err);
     }
   }, [cart]);
 

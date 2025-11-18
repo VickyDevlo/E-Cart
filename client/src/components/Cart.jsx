@@ -6,11 +6,11 @@ const Cart = () => {
   const isCart = cart.length > 0;
   return (
     <>
-      <div className="overflow-auto max-h-96 bg-white rounded-t-xl">
+      <div className="overflow-auto max-h-[379px] bg-white rounded-t-xl">
         {isCart ? (
           <table className="mx-auto table-fixed w-full">
-            <thead className="bg-gray-100 border-b">
-              <tr>
+            <thead className="bg-gray-100 sticky top-0 z-40 shadow-sm">
+              <tr className="">
                 <th className="max-md:hidden p-2 font-semibold text-gray-800">
                   No.
                 </th>
@@ -34,23 +34,20 @@ const Cart = () => {
                     {item.name}
                   </td>
                   <td className="p-2 max-md:text-sm text-gray-700 font-medium">
-                    ${item.price.toFixed(2)}
+                    ₹{item.price.toFixed(2)}
                   </td>
                   <td className="p-2 max-md:text-sm text-gray-700 font-medium">
                     <input
-                      type="text"
+                      type="number"
                       value={item?.qty}
                       onChange={(e) => {
-                        const val = e.target.value;
-                        if (/^\d*$/.test(val)) {
-                          updateQty(item.id, val === "" ? "" : Number(val));
-                        }
+                        updateQty(item.id, e.target.value);
                       }}
                       className="w-10 rounded pl-2"
                     />
                   </td>
                   <td className="max-md:hidden p-2 font-medium text-gray-700">
-                    $ {(item?.price * item?.qty).toFixed(2)}
+                    ₹ {(item?.price * item?.qty).toFixed(2)}
                   </td>
                   <td className="max-md:text-xs">
                     <button
@@ -72,7 +69,7 @@ const Cart = () => {
       </div>
       {cart?.length ? (
         <div className="flex text-gray-700 text-sm md:text-base bg-white items-center justify-end p-2 font-bold rounded-b-xl">
-          Total: $ {total.toFixed(2)}
+          Total: ₹ {total.toFixed(2)}
         </div>
       ) : (
         ""

@@ -49,4 +49,56 @@ export const products = [
     name: "32GB Pen Drive USB 3.0",
     price: 349,
   },
+
+  // Added 10 more products
+  {
+    id: 11,
+    name: "4K HDMI Cable",
+    price: 299,
+  },
+  {
+    id: 12,
+    name: "Wireless Power Bank 10000mAh",
+    price: 1199,
+  },
+  {
+    id: 13,
+    name: "Smartwatch with Heart Rate Monitor",
+    price: 1999,
+  },
+  {
+    id: 14,
+    name: "Bluetooth Car Adapter",
+    price: 449,
+  },
+  {
+    id: 15,
+    name: "RGB Gaming Keyboard",
+    price: 1599,
+  },
+  {
+    id: 16,
+    name: "1080p Web Camera",
+    price: 899,
+  },
+  {
+    id: 17,
+    name: "Wireless Earbuds Pro",
+    price: 1299,
+  },
+  {
+    id: 18,
+    name: "Portable Hard Drive 1TB",
+    price: 3499,
+  },
+  {
+    id: 19,
+    name: "Smart WiFi Plug",
+    price: 799,
+  },
+  {
+    id: 20,
+    name: "Mini Tripod for Phones",
+    price: 199,
+  },
 ];

@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { cart } = useCart();
   return (
-    <header className="bg-gray-100 shadow-md">
+    <header className="bg-gray-100 shadow-md sticky top-0 overflow-hidden z-50">
       <nav className="container mx-auto flex items-center justify-between p-3">
         <h1
           onClick={() => navigate("/")}
