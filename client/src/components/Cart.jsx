@@ -41,7 +41,7 @@ const Cart = () => {
                       type="number"
                       value={item?.qty}
                       onChange={(e) => {
-                        updateQty(item.id, e.target.value);
+                        updateQty(item.id, Number(e.target.value));
                       }}
                       className="w-10 rounded pl-2"
                     />

@@ -16,23 +16,26 @@ export const CartProvider = ({ children }) => {
   });
 
   //Add to cart
-  const addToCart = useCallback((product) => {
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+  const addToCart = useCallback(
+    (product) => {
+      setCart((prev) => {
+        const existing = prev.find((item) => item.id === product.id);
 
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
-        );
-      }
+        if (existing) {
+          return prev.map((item) =>
+            item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          );
+        }
 
-      return [...prev, { ...product, qty: 1 }];
-    });
-  }, []);
+        return [...prev, { ...product, qty: 1 }];
+      });
+    },
+    [cart]
+  );
 
   //UpdateCart
   const updateQty = (id, qty) => {
-    if (qty < 1) qty = 1;
+    if (qty < 1) return;
     setCart((prev) =>
       prev.map((item) => (item.id === id ? { ...item, qty } : item))
     );
